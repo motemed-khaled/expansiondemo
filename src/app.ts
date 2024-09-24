@@ -20,27 +20,16 @@ app.use('/media', express.static('media'));
 
 mountRoutes(app);
 
-const menuPath = path.join(process.cwd(), 'menu', 'build');
-const guestPath = path.join(process.cwd(), 'guest', 'web');
 
 app.use(express.static(path.join(__dirname, '../client', 'build')));
-app.use('/menu', express.static(menuPath));
-app.use('/guest', express.static(guestPath));
 
-app.get('/menu', (req, res) => {
-  res.sendFile(path.join(menuPath, 'index.html'));
-});
-
-app.get('/guest', (req, res) => {
-  res.sendFile(path.join(guestPath, 'index.html'));
-});
 
 app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(__dirname , '../client', 'build', 'index.html'));
 });
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(menuPath, 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname , '../client', 'build', 'index.html'));
+});
 
 app.use(globalErrorHandlingMiddleware);
