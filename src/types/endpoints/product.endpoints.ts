@@ -33,7 +33,7 @@ export interface GetProductHandler
   > {}
 
 export interface GetProductsHandler
-  extends RequestHandler<unknown, successResponse<{ data: Iproduct[] }>, unknown, unknown> {}
+  extends RequestHandler<unknown, successResponse<{ data: Iproduct[] }>, unknown, {category?:string}> {}
 
 export interface DeleteProductHandler
   extends RequestHandler<{ productId: string }, successResponse<unknown>, unknown, unknown> {}

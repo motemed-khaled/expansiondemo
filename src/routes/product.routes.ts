@@ -18,7 +18,7 @@ router
     val.createProductVal,
     handler.createProductHandler,
   )
-  .get(handler.getProductsHandler);
+  .get(val.getProducts , handler.getProductsHandler);
 
 router
   .route('/:productId')

@@ -34,3 +34,5 @@ export const getProductVal = [check('productId').isMongoId(), validationMiddlewa
 export const deleteProduct = [check('productId').isMongoId(), validationMiddleware];
 
 export const updateProductStatusVal = [check('productId').isMongoId(), validationMiddleware];
+
+export const getProducts  = [  check('category').optional().isMongoId(),validationMiddleware];
